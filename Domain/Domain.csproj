@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B8AC70E-9B41-4B8D-908C-8BFA254889E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EBS.BLL">
+      <HintPath>..\PublicLib\EBS.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="EBS.Interface.Data">
+      <HintPath>..\PublicLib\EBS.Interface.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EBS.Interface.DBUtility">
+      <HintPath>..\PublicLib\EBS.Interface.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="EBS.Interface.Model">
+      <HintPath>..\PublicLib\EBS.Interface.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="EBS.WriteLog_Tools">
+      <HintPath>..\PublicLib\EBS.WriteLog_Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="ECommon, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PublicLib\ECommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ENode">
+      <HintPath>..\PublicLib\ENode.dll</HintPath>
+    </Reference>
+    <Reference Include="ORM.Base">
+      <HintPath>..\PublicLib\ORM.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Grab\GrabOrder.cs" />
+    <Compile Include="Grab\GrabOrderLockService.cs" />
+    <Compile Include="Grab\QiangLockOrderCreateEvent.cs" />
+    <Compile Include="Grab\WaitQiangUpdateEvent.cs" />
+    <Compile Include="OrderProcess\AttentionOrderUpdateEvent.cs" />
+    <Compile Include="OrderProcess\NCustomerListUpdateEvent.cs" />
+    <Compile Include="OrderProcess\NOrderBaseUpdateEvent.cs" />
+    <Compile Include="OrderProcess\NOrderServiceCreateEvent.cs" />
+    <Compile Include="OrderProcess\NOrderServiceLogCreateEvent.cs" />
+    <Compile Include="OrderProcess\NOrderServiceLogUpdateEvent.cs" />
+    <Compile Include="OrderProcess\NOrderServiceUpdateEvent.cs" />
+    <Compile Include="OrderProcess\OrderFollowUpCreateEvent.cs" />
+    <Compile Include="OrderProcess\OrderFollowUpCreateSuccessEvent.cs" />
+    <Compile Include="OrderProcess\ProcessingOrder.cs" />
+    <Compile Include="OrderProcess\RealSiteInfoUpdateEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{77c34acb-e7e5-41c0-a922-69eaf5028933}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
